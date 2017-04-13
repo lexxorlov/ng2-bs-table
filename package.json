@@ -2,7 +2,7 @@
   "name": "ng2-bs-table",
   "version": "1.0.10",
   "description": "Boostrap table view for angular 2.",
-  "main": ".index.js",
+  "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
     "prepublish": "tsc",
