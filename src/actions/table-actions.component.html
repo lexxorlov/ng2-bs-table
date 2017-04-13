@@ -1,0 +1,4 @@
+<span *ngFor="let action of actions">
+    <a *ngIf="action.visible(data)" (click)="onActionClick(action)"
+       class="{{action.glyphicon}}"></a>
+</span>

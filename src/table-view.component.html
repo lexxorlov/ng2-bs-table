@@ -1,0 +1,60 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped ui-table-sortable">
+        <thead>
+        <tr>
+            <th *ngFor="let column of columns" [class]="sorting.getClass(column)" (click)="sorting.does(column)">
+                {{column.display}}
+            </th>
+            <th *ngIf="actions.length" class="actions text-center">
+                Actions
+            </th>
+        </tr>
+        <tr *ngIf="filters.length">
+            <th *ngFor="let column of columns">
+                <span *ngFor="let filter of filters">
+                    <table-filter-outlet *ngIf="column.getColumnName() == filter.getColumnName()"
+                                         [html]="filter.getTemplate()"
+                                         [columnName]="column.getColumnName()"
+                                         [collection]="collection"
+                                         [imports]="imports"
+                                         (filter)="onFilter($event)">
+                    </table-filter-outlet>
+                </span>
+            </th>
+            <th *ngIf="filters.length&&actions.length"><!-- empty cell for action --></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let object of collection | transformBy: transformBy(); let i = index">
+            <td *ngFor="let column of columns">
+                <span [ngSwitch]="column.getType()">
+                    <p *ngSwitchCase="'innerHtml'"
+                       [innerHtml]="column.render(object) | format : column.filter">
+                    </p>
+                    <p *ngSwitchCase="'templateHtml'">
+                        <table-html-outlet
+                                [html]="column.render(object)"
+                                [imports]="imports"
+                                [columnName]="column.getColumnName()"
+                                [data]="object">
+                        </table-html-outlet>
+                    </p>
+                </span>
+            </td>
+            <td *ngIf="actions.length">
+                <table-view-actions [actions]="actions" [data]="object"
+                                    (actionClick)="onActionClick($event)"></table-view-actions>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <ng-pagination [totalItems]="pagination.totalItems"
+                   [currentPage]="pagination.currentPage"
+                   [pageSize]="pagination.pageSize"
+                   (pageChange)="pagination.onPageChange($event)"
+                   previous-text="&lsaquo;"
+                   next-text="&rsaquo;"
+                   first-text="First"
+                   last-text="Last">
+    </ng-pagination>
+</div>

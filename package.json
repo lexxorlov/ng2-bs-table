@@ -1,0 +1,60 @@
+{
+  "name": "ng2-bs-table",
+  "version": "1.0.10",
+  "description": "Boostrap table view for angular 2.",
+  "main": ".index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "prepublish": "tsc",
+    "tsc": "tsc",
+    "webpack": "webpack --display-error-details"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexxorlov/ng2-bs-table.git"
+  },
+  "dependencies": {
+    "ng2-bs-pagination": "*"
+  },
+  "devDependencies": {
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "@types/node": "^6.0.46",
+    "angular2-template-loader": "^0.6.0",
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "reflect-metadata": "^0.1.8",
+    "rollup": "^0.41.4",
+    "rxjs": "~5.0.0",
+    "systemjs": "0.19.40",
+    "typescript": "^2.0.10",
+    "zone.js": "^0.7.4",
+    "ng2-bs-pagination": "*"
+  },
+  "keywords": [
+    "angular2",
+    "ng2",
+    "angularjs",
+    "table",
+    "table-view",
+    "table-grid",
+    "grid",
+    "filter",
+    "sort",
+    "pagination"
+  ],
+  "author": {
+    "name": "Alexey Orlov",
+    "email": "aaorlov88@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lexxorlov/ng2-bs-table.git/issues"
+  },
+  "homepage": "https://github.com/lexxorlov/ng2-bs-table.git#readme"
+}
